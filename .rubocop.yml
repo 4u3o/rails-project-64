@@ -1,0 +1,23 @@
+require: rubocop-rails
+
+AllCops:
+  Include:
+    - 'app/**/*.rb'
+  DisplayCopNames: true
+  NewCops: enable
+  SuggestExtensions: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/QuotedSymbols:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 120

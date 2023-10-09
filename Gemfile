@@ -51,12 +51,20 @@ gem "bootsnap", require: false
 gem 'dotenv-rails'
 gem "sentry-ruby"
 gem "sentry-rails"
+gem "slim"
+gem "slim-rails"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   # Use sqlite3 as the database for Active Record
   gem "sqlite3", "~> 1.4"
+
+  gem 'byebug'
+  gem 'faker'
+  gem 'rubocop'
+  gem 'rubocop-rails'
+  gem 'slim_lint'
 end
 
 group :development do

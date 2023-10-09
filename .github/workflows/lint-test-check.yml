@@ -1,0 +1,27 @@
+name: Linting and Testing
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ruby/setup-ruby@v1.155.0
+        with:
+          bundler-cache: true
+      - run: make lint
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ruby/setup-ruby@v1.155.0
+        with:
+          bundler-cache: true
+      - run: bin/rails db:create
+      - run: bin/rails db:migrate
+      - run: make test
