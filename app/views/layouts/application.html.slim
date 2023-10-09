@@ -10,6 +10,6 @@ html
     = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
   body.d-flex.flex-column.h-100
     = render 'partials/nav'
-    = render 'partials/flash'
     .container.my-4
+      = render 'partials/flash'
       = yield
