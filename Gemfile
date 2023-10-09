@@ -48,9 +48,9 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
-gem 'dotenv-rails'
-gem "sentry-ruby"
+gem "dotenv-rails"
 gem "sentry-rails"
+gem "sentry-ruby"
 gem "slim"
 gem "slim-rails"
 
@@ -60,11 +60,11 @@ group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem "sqlite3", "~> 1.4"
 
-  gem 'byebug'
-  gem 'faker'
-  gem 'rubocop'
-  gem 'rubocop-rails'
-  gem 'slim_lint'
+  gem "byebug"
+  gem "faker"
+  gem "rubocop"
+  gem "rubocop-rails"
+  gem "slim_lint"
 end
 
 group :development do
@@ -81,7 +81,8 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
+  gem 'minitest-power_assert'
+  gem "pg"
   gem "selenium-webdriver"
   gem "webdrivers"
-  gem "pg"
 end

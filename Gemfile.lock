@@ -127,6 +127,9 @@ GEM
     method_source (1.0.0)
     mini_mime (1.1.5)
     minitest (5.20.0)
+    minitest-power_assert (0.3.1)
+      minitest
+      power_assert (>= 1.1)
     msgpack (1.7.2)
     net-imap (0.4.0)
       date
@@ -145,6 +148,7 @@ GEM
       ast (~> 2.4.1)
       racc
     pg (1.5.4)
+    power_assert (2.0.3)
     psych (5.1.0)
       stringio
     public_suffix (5.0.3)
@@ -282,6 +286,7 @@ DEPENDENCIES
   faker
   jbuilder
   jsbundling-rails
+  minitest-power_assert
   pg
   puma (~> 5.0)
   rails (~> 7.0.6)
