@@ -18,8 +18,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_09_212435) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string "title"
-    t.text "body"
+    t.string "title", null: false
+    t.text "body", null: false
     t.integer "creator_id", null: false
     t.integer "category_id", null: false
     t.datetime "created_at", null: false

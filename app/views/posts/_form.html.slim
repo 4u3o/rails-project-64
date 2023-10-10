@@ -4,9 +4,9 @@
 
   .form-inputs
     = f.input :title
-    = f.input :body
-    = f.association :creator
     = f.association :category
+    = f.input :body, input_html: {rows: 10}
+    / = f.association :creator
 
   .form-actions
     = f.button :submit

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :posts
-  resources :categories
-  root 'home#index'
+  root 'posts#index'
 
   devise_for :users
+  resources :posts, only: %i[show new create]
+  # resources :categories
 end
