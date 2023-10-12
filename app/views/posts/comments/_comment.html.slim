@@ -8,9 +8,10 @@
   .card-body.border-0
     p.card-text
       = comment.content
-  .card-footer.border-0
-    = link_to_comment(comment)
-    .ms-2.collapse id="response_comment-#{comment.id}"
-      == render 'posts/comments/form', post: comment.post, parent: comment
+  - if user_signed_in?
+    .card-footer.border-0
+      = link_to_comment(comment)
+      .ms-2.collapse id="response_comment-#{comment.id}"
+        == render 'posts/comments/form', post: comment.post, parent: comment
   .ms-4
     == render partial: 'posts/comments/comment', collection: comment.children
