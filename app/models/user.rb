@@ -5,5 +5,8 @@ class User < ApplicationRecord
          :rememberable,
          :validatable
 
-  has_many :created_posts, class_name: 'Post', foreign_key: :creator_id, inverse_of: :creator
+  has_many :created_posts, class_name: 'Post', foreign_key: :creator_id,
+                           inverse_of: :creator, dependent: :destroy
+  has_many :comments, class_name: 'Post::Comment', foreign_key: :author_id,
+                      inverse_of: :author, dependent: :destroy
 end

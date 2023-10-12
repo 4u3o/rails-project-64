@@ -1,1 +1,9 @@
 == render @post
+
+.lead.mt-3#comment-section
+  span
+    = t('.comments')
+    == render 'posts/comments/form', post: @post, parent: nil
+    - if @post.comments.any?
+      == render partial: 'posts/comments/comment',
+              collection: @post.comments.roots

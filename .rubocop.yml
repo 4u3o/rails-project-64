@@ -10,6 +10,12 @@ AllCops:
 Layout/SpaceInsideHashLiteralBraces:
   EnforcedStyle: no_space
 
+Naming/MemoizedInstanceVariableName:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
 Style/Documentation:
   Enabled: false
 
@@ -24,3 +30,6 @@ Style/StringLiterals:
 
 Layout/LineLength:
   Max: 120
+
+Layout/IndentationConsistency:
+  EnforcedStyle: indented_internal_methods

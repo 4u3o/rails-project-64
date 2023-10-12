@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
-  before_action :set_post, only: %i[show edit update destroy]
+  before_action :set_post, only: :show
 
   def index
     @posts = Post.all
@@ -16,32 +16,19 @@ class PostsController < ApplicationController
     @post = current_user.created_posts.build(post_params)
 
     if @post.save
-      redirect_to post_url(@post), notice: "Post was successfully created."
+      redirect_to post_url(@post), notice: t('.success')
     else
       render :new, status: :unprocessable_entity
     end
   end
-  #
-  # def update
-  #   if @post.update(post_params)
-  #     redirect_to post_url(@post), notice: "Post was successfully updated."
-  #   else
-  #     render :edit, status: :unprocessable_entity
-  #   end
-  # end
-  #
-  # def destroy
-  #   @post.destroy
-  #   redirect_to posts_url, notice: "Post was successfully destroyed."
-  # end
 
   private
 
-  def set_post
-    @post = Post.find(params[:id])
-  end
+    def set_post
+      @post = Post.find(params[:id])
+    end
 
-  def post_params
-    params.require(:post).permit(:title, :body, :category_id)
-  end
+    def post_params
+      params.require(:post).permit(:title, :body, :category_id)
+    end
 end
