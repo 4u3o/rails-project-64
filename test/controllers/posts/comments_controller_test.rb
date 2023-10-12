@@ -1,10 +1,7 @@
 require "test_helper"
 
 class Posts::CommentsControllerTest < ActionDispatch::IntegrationTest
-  include Devise::Test::IntegrationHelpers
-
   setup do
-
     @post = posts(:one)
     @comment = post_comments(:with_comments)
     @nested_comment = post_comments(:nested)
