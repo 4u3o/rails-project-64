@@ -1,3 +1,6 @@
+ol.breadcrumb
+  li.breadcrumb-item= link_to t('.posts'), root_path
+  li.breadcrumb-item.active= @post.category.name.capitalize
 == render @post
 
 .lead.mt-3#comment-section
