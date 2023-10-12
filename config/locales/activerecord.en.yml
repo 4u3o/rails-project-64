@@ -3,19 +3,19 @@ en:
     models:
       user:
         one: "User"
-        many: "Users"
+        other: "Users"
       post:
         one: "Post"
-        many: "Posts"
+        other: "Posts"
       category:
         one: "Category"
-        many: "Categories"
+        other: "Categories"
       post/comment:
         one: "Comment"
-        many: "Comments"
+        other: "Comments"
       post/like:
         one: "Like"
-        many: "Likes"
+        other: "Likes"
     attributes:
       user:
         email: "Email"
