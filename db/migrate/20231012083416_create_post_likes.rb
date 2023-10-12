@@ -6,7 +6,5 @@ class CreatePostLikes < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
-    add_index :post_likes, :user
-    add_index :post_likes, :post
   end
 end
