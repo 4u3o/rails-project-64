@@ -8,3 +8,7 @@ article.col-12
         = post.creator.email
       span
         = time_ago_in_words(post.created_at)
+    #likes-section
+      span.me-2
+        = post.likes.count
+      = like_tag(post)
