@@ -24,4 +24,5 @@ jobs:
           bundler-cache: true
       - run: bin/rails db:create
       - run: bin/rails db:migrate
+      - run: bin/rails assets:precompile
       - run: make test
