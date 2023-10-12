@@ -9,11 +9,11 @@
         li.nav-item.me-2
           p.nav-link.disabled = current_user.email
         li.nav-item.me-2
-          = nav_link_to "Новый пост", new_post_path
+          = nav_link_to t(:new_post), new_post_path
         li.nav-item.me-2
-          = nav_link_to "Выйти", destroy_user_session_path, data: {turbo_method: :delete}
+          = nav_link_to t(:log_out), destroy_user_session_path, data: {turbo_method: :delete}
       - else
         li.nav-item.me-2
-          = nav_link_to "Войти", user_session_path
+          = nav_link_to t(:log_in), user_session_path
         li.nav-item.me-2
-          = nav_link_to "Зарегистрироваться", new_user_registration_path
+          = nav_link_to t(".sing_up"), new_user_registration_path

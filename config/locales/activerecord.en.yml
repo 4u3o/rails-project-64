@@ -1,0 +1,36 @@
+en:
+  activerecord:
+    models:
+      user:
+        one: "User"
+        many: "Users"
+      post:
+        one: "Post"
+        many: "Posts"
+      category:
+        one: "Category"
+        many: "Categories"
+      post/comment:
+        one: "Comment"
+        many: "Comments"
+      post/like:
+        one: "Like"
+        many: "Likes"
+    attributes:
+      user:
+        email: "Email"
+        password: "Password"
+      post:
+        title: "Title"
+        body: "Body"
+        creator: "Creator"
+        category: "Category"
+      category:
+        name: "Name"
+      post/comment:
+        content: "Comment"
+        post: "Post"
+        author: "Author"
+      post/like:
+        user: "Author"
+        post: "Post"

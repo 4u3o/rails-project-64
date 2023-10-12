@@ -1,5 +1,5 @@
 h2
-  | Sign up
+  = t('.header')
 = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   = f.error_notification
   .form-inputs
@@ -9,11 +9,11 @@ h2
             input_html: {autocomplete: "email"}
     = f.input :password,
             required: true,
-            hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+            hint: (t('.password', count: @minimum_password_length) if @minimum_password_length),
             input_html: {autocomplete: "new-password"}
     = f.input :password_confirmation,
             required: true,
             input_html: {autocomplete: "new-password"}
   .form-actions
-    = f.button :submit, "Sign up"
+    = f.button :submit, t(:sign_up)
 = render "devise/shared/links"

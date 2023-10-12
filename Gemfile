@@ -50,7 +50,9 @@ gem "bootsnap", require: false
 
 gem "ancestry"
 gem "devise", "~> 4.7", ">= 4.7.1"
+gem "devise-i18n"
 gem "dotenv-rails"
+gem "rails-i18n"
 gem "sentry-rails"
 gem "sentry-ruby"
 gem "simple_form"

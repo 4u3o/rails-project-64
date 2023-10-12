@@ -1,6 +1,6 @@
 module Posts::CommentsHelper
   def link_to_comment(comment)
-    link_to t('.answer'), "#",
+    link_to I18n.t('.answer'), "#",
             class: "fs-6 text-decoration-underline text-lowercase",
             role: "button",
             "aria_controls" => "response_comment-#{comment.id}",

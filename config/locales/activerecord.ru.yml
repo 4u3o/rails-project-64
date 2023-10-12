@@ -1,0 +1,36 @@
+ru:
+  activerecord:
+    models:
+      user:
+        one: "Пользователь"
+        many: "Пользователи"
+      post:
+        one: "Пост"
+        many: "Посты"
+      category:
+        one: "Категория"
+        many: "Категории"
+      post/comment:
+        one: "Комментарий"
+        many: "Комментарии"
+      post/like:
+        one: "Лайк"
+        many: "Лайки"
+    attributes:
+      user:
+        email: "Электронная почта"
+        password: "Пароль"
+      post:
+        title: "Заголовок"
+        body: "Содержание"
+        creator: "Автор"
+        category: "Категория"
+      category:
+        name: "Название"
+      post/comment:
+        content: "Комментарий"
+        post: "Пост"
+        author: "Автор"
+      post/like:
+        user: "Автор"
+        post: "Пост"

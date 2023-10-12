@@ -1,0 +1,20 @@
+ru:
+  sign_up: "Регистрация"
+  log_in: "Войти"
+  project: "Коллективный блог"
+  new_post: "Новый пост"
+  log_out: "Выйти"
+  partials:
+    nav:
+      sing_up: "Зарегистрироваться"
+  posts:
+    post_card:
+      liked: "Понравилось"
+    index:
+      header: "Коллективный блог"
+    comments:
+      form:
+        button: "Оставить комментарий"
+    show:
+      posts: "Все посты"
+  answer: "ответить"

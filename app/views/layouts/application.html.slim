@@ -2,7 +2,7 @@ doctype html
 html
   head
     title
-      | RailsProject64
+      = t(:project)
     meta[name="viewport" content="width=device-width,initial-scale=1"]
     = csrf_meta_tags
     = csp_meta_tag
@@ -14,4 +14,3 @@ html
     .container.my-4
       == render 'partials/flash'
       == yield
-      / TODO: прилепленный подвал

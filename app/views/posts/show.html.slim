@@ -5,7 +5,7 @@ ol.breadcrumb
 
 .lead.mt-3#comment-section
   span
-    = t('.comments')
+    = Post::Comment.model_name.human(count: @post.comments.count)
     == render 'posts/comments/form', post: @post, parent: nil if user_signed_in?
     - if @post.comments.any?
       == render partial: 'posts/comments/comment',

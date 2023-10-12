@@ -31,3 +31,22 @@
 
 en:
   hello: "Hello world"
+  sign_up: "Sign up"
+  log_in: "Log in"
+  project: "Collective Blog"
+  new_post: "New post"
+  log_out: "Log out"
+  partials:
+    nav:
+      sing_up: "Sign up"
+  posts:
+    post_card:
+      liked: "Liked"
+    index:
+      header: "Collective blog"
+    comments:
+      form:
+        button: "Leave a comment"
+    show:
+      posts: "All posts"
+  answer: "answer"
