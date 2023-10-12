@@ -8,6 +8,7 @@
       .text-right.small.text-muted.mt-auto
         span.me-2
           | Понравилось:
+          =< post.likes.count
         span.me-2
           = time_ago_in_words(post.created_at)
         span
