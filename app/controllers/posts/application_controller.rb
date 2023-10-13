@@ -1,10 +1,14 @@
-class Posts::ApplicationController < ApplicationController
-  before_action :authenticate_user!
-  before_action :set_post
+# frozen_string_literal: true
 
-  private
+module Posts
+  class ApplicationController < ApplicationController
+    before_action :authenticate_user!
+    before_action :post
 
-    def set_post
+    private
+
+    def post
       @post ||= Post.find(params[:post_id])
     end
+  end
 end

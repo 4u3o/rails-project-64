@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Post < ApplicationRecord
   default_scope -> { order(created_at: :desc) }
 
@@ -12,6 +14,6 @@ class Post < ApplicationRecord
   has_many :likes, class_name: 'PostLike', dependent: :destroy, inverse_of: :post
 
   validates :title, :body, presence: true
-  validates :title, length: {minimum: MIN_TITLE_LENGTH, maximum: MAX_TITLE_LENGTH}
-  validates :body, length: {minimum: MIN_BODY_LENGTH, maximum: MAX_BODY_LENGTH}
+  validates :title, length: { minimum: MIN_TITLE_LENGTH, maximum: MAX_TITLE_LENGTH }
+  validates :body, length: { minimum: MIN_BODY_LENGTH, maximum: MAX_BODY_LENGTH }
 end

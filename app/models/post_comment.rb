@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PostComment < ApplicationRecord
   default_scope { order(created_at: :desc) }
 
@@ -9,7 +11,7 @@ class PostComment < ApplicationRecord
   belongs_to :user
 
   validates :content, presence: true,
-                      length: {minimum: MIN_CONTENT_LENGTH}
+                      length: { minimum: MIN_CONTENT_LENGTH }
 
   scope :roots, -> { where(ancestry: '/') }
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
   before_action :set_post, only: :show
@@ -24,11 +26,11 @@ class PostsController < ApplicationController
 
   private
 
-    def set_post
-      @post = Post.find(params[:id])
-    end
+  def set_post
+    @post = Post.find(params[:id])
+  end
 
-    def post_params
-      params.require(:post).permit(:title, :body, :category_id)
-    end
+  def post_params
+    params.require(:post).permit(:title, :body, :category_id)
+  end
 end
