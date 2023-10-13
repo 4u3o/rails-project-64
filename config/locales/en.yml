@@ -55,4 +55,7 @@ en:
       button: "Post"
     create:
       success: "Post was published"
+    likes:
+      destroy:
+        alert: "Not yours"
   answer: "answer"

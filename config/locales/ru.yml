@@ -23,4 +23,7 @@ ru:
       button: "Опубликовать"
     create:
       success: "Пост успешно опубликован"
+    likes:
+      destroy:
+        alert: "Не твое - не трожь"
   answer: "ответить"
