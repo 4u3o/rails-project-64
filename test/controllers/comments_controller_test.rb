@@ -24,7 +24,7 @@ class Posts::CommentsControllerTest < ActionDispatch::IntegrationTest
 
     assert { comment }
     assert { comment.user == @user }
-    assert { comment.ancestry == '/' }
+    assert { comment.ancestry.nil? }
 
     assert_redirected_to post_url(@post)
   end

@@ -2,7 +2,6 @@ root:
   content: this is comment with comments
   user: one
   post: one
-  ancestry: /
 
 nested:
   content: commented comment

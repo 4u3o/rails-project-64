@@ -6,9 +6,9 @@ class CreatePostComment < ActiveRecord::Migration[7.0]
       t.references :user, null: false, foreign_key: true
 
       if Rails.env.production?
-        t.string :ancestry, collation: 'C', null: false
+        t.string :ancestry, collation: 'C'
       else
-        t.string :ancestry, null: false
+        t.string :ancestry
       end
 
       t.timestamps

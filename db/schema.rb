@@ -22,7 +22,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_12_083416) do
     t.text "content", null: false
     t.integer "post_id", null: false
     t.integer "user_id", null: false
-    t.string "ancestry", null: false
+    t.string "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["ancestry"], name: "index_post_comments_on_ancestry"
