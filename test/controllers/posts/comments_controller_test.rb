@@ -2,36 +2,52 @@ require "test_helper"
 
 class Posts::CommentsControllerTest < ActionDispatch::IntegrationTest
   setup do
+    @user = users(:one)
+    sign_in @user
+
     @post = posts(:one)
-    @comment = post_comments(:with_comments)
-    @nested_comment = post_comments(:nested)
+    @root_comment = post_comments(:root)
   end
 
   test "#create" do
-    sign_in users(:one)
+    comment_params = {
+      content: Faker::Lorem.sentence,
+      parent_id: nil
+    }
 
     assert_difference("Post::Comment.count") do
       post post_comments_url(@post),
            params: {
-             post_comment: {
-               content: @comment.content,
-               parent_id: nil
-             }
+             post_comment: comment_params
            }
     end
+
+    comment = Post::Comment.find_by(content: comment_params[:content])
+
+    assert { comment }
+    assert { comment.author == @user }
+    assert { comment.ancestry == '/' }
+
+    assert_redirected_to post_url(@post)
   end
 
   test "#create nested comment" do
-    sign_in users(:one)
+    comment_params = {
+      content: Faker::Lorem.sentence,
+      parent_id: @root_comment.id
+    }
 
-    assert_difference("@comment.children.count") do
+    assert_difference("@root_comment.children.count") do
       post post_comments_url(@post),
            params: {
-             post_comment: {
-               content: @nested_comment.content,
-               parent_id: @comment.id
-             }
+             post_comment: comment_params
            }
     end
+
+    comment = Post::Comment.find_by(content: comment_params[:content])
+
+    assert { comment }
+    assert { comment.author == @user }
+    assert { comment.parent == @root_comment }
   end
 end

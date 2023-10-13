@@ -2,7 +2,9 @@ require "test_helper"
 
 class PostsControllerTest < ActionDispatch::IntegrationTest
   setup do
+    @user = users(:one)
     @post = posts(:one)
+    @category = categories(:one)
   end
 
   test "#index" do
@@ -11,35 +13,34 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "#new" do
-    sign_in users(:one)
+    sign_in @user
 
     get new_post_url
     assert_response :success
   end
 
   test "#create" do
-    sign_in users(:one)
+    sign_in @user
 
     post_params = {
-      body: Faker::Lorem.character
+      title: Faker::Lorem.sentence,
+      body: Faker::Lorem.paragraph_by_chars,
+      category_id: @category.id
     }
 
     assert_difference("Post.count") do
       post posts_url,
-           params: {
-             post: {
-               body: @post.body,
-               category_id: @post.category_id,
-               title: @post.title
-             }
-           }
+           params: {post: post_params}
     end
 
-    assert { Post.last.title == @post.title }
-    assert { Post.last.body == @post.body }
-    assert { Post.last.category_id == @post.category_id }
+    post = Post.find_by(title: post_params[:title])
 
-    assert_redirected_to post_url(Post.last)
+    assert { post }
+    assert { post.body == post_params[:body] }
+    assert { post.category_id == @category.id }
+    assert { post.creator_id == @user.id }
+
+    assert_redirected_to post_url(post)
   end
 
   test "#show" do

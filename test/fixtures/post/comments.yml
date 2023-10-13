@@ -1,4 +1,4 @@
-with_comments:
+root:
   content: this is comment with comments
   author: one
   post: one

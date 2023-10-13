@@ -21,5 +21,7 @@ class Posts::LikesControllerTest < ActionDispatch::IntegrationTest
     assert_difference("Post::Like.count", -1) do
       delete post_like_url(@post, post_likes(:one))
     end
+
+    assert { Post::Like.where(user: @user, post: @post).empty? }
   end
 end
