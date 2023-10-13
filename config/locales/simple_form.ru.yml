@@ -7,3 +7,7 @@ ru:
       mark: '*'
     error_notification:
       default_message: "Пожалуйста, проверьте проблемы ниже:"
+    hints:
+      post:
+        title: "5-255 символов"
+        body: "От 200 до 4000 символов"

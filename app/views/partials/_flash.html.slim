@@ -1,2 +1,3 @@
-- flash.each do |_, message|
-  = content_tag :div, message, class: "alert alert-info", role: "alert"
+- flash.each do |key, message|
+  - role = key == :notice ? 'info' : 'danger'
+  = content_tag :div, message, class: "alert alert-#{role}", role: "alert"

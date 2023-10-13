@@ -49,4 +49,6 @@ en:
         button: "Leave a comment"
     show:
       posts: "All posts"
+    form:
+      button: "Post"
   answer: "answer"

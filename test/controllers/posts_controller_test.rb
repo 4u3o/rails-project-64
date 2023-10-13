@@ -20,6 +20,10 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   test "#create" do
     sign_in users(:one)
 
+    post_params = {
+      body: Faker::Lorem.character
+    }
+
     assert_difference("Post.count") do
       post posts_url,
            params: {

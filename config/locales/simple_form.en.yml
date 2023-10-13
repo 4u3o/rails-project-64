@@ -7,6 +7,10 @@ en:
       mark: '*'
     error_notification:
       default_message: "Please review the problems below:"
+    hints:
+      post:
+        title: "5-255 signs"
+        body: "200-4000 signs"
     # Examples
     # labels:
     #   defaults:

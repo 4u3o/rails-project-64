@@ -33,7 +33,7 @@ ru:
         other: "%{count} лайк"
     attributes:
       user:
-        email: "Электронная почта"
+        email: "Email"
         password: "Пароль"
       post:
         title: "Заголовок"

@@ -7,7 +7,7 @@ class Posts::CommentsController < Posts::ApplicationController
     if @comment.save
       redirect_to @post, notice: t('.success')
     else
-      redirect_to @post
+      redirect_to @post, alert: @comment.errors.full_messages.join('\n')
     end
   end
 
