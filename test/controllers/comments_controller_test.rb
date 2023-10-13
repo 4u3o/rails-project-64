@@ -15,12 +15,12 @@ class Posts::CommentsControllerTest < ActionDispatch::IntegrationTest
       parent_id: nil
     }
 
-    assert_difference("Post::Comment.count") do
+    assert_difference("PostComment.count") do
       post post_comments_url(@post),
            params: {post_comment: comment_params}
     end
 
-    comment = Post::Comment.find_by(content: comment_params[:content])
+    comment = PostComment.find_by(content: comment_params[:content])
 
     assert { comment }
     assert { comment.user == @user }
@@ -40,7 +40,7 @@ class Posts::CommentsControllerTest < ActionDispatch::IntegrationTest
            params: {post_comment: comment_params}
     end
 
-    comment = Post::Comment.find_by(content: comment_params[:content])
+    comment = PostComment.find_by(content: comment_params[:content])
 
     assert { comment }
     assert { comment.user == @user }

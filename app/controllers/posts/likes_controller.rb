@@ -6,8 +6,8 @@ class Posts::LikesController < Posts::ApplicationController
   end
 
   def destroy
-    @like = Post::Like.find params[:id]
+    @like = PostLike.find params[:id]
 
-    redirect_to @post if @like.delete
+    redirect_to @post if @like.user == current_user && @like.delete
   end
 end

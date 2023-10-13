@@ -21,4 +21,6 @@ ru:
       posts: "Все посты"
     form:
       button: "Опубликовать"
+    create:
+      success: "Пост успешно опубликован"
   answer: "ответить"

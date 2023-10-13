@@ -15,6 +15,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_12_083416) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_categories_on_name", unique: true
   end
 
   create_table "post_comments", force: :cascade do |t|
@@ -35,6 +36,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_12_083416) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_post_likes_on_post_id"
+    t.index ["user_id", "post_id"], name: "index_post_likes_on_user_id_and_post_id", unique: true
     t.index ["user_id"], name: "index_post_likes_on_user_id"
   end
 

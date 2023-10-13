@@ -53,4 +53,6 @@ en:
       posts: "All posts"
     form:
       button: "Post"
+    create:
+      success: "Post was published"
   answer: "answer"

@@ -5,23 +5,22 @@ class Posts::LikesControllerTest < ActionDispatch::IntegrationTest
     @user = users(:one)
     sign_in @user
 
-    @like_from_another = post_likes(:two)
-    @post = posts(:one)
+    @post = posts(:two)
   end
 
   test "#create" do
-    assert_difference("Post::Like.count") do
+    assert_difference("PostLike.count") do
       post post_likes_url(@post)
     end
 
-    assert { Post::Like.where(user: @user, post: @post) }
+    assert { PostLike.where(user: @user, post: @post).count == 1 }
   end
 
   test "#destroy" do
-    assert_difference("Post::Like.count", -1) do
+    assert_difference("PostLike.count", -1) do
       delete post_like_url(@post, post_likes(:one))
     end
 
-    assert { Post::Like.where(user: @user, post: @post).empty? }
+    assert { PostLike.where(user: @user, post: @post).empty? }
   end
 end

@@ -19,13 +19,13 @@ ru:
         few: "%{count} категории"
         many: "%{count} категорий"
         other: "%{count} категория"
-      post/comment:
+      post_comment:
         zero: "Нет комментариев"
         one: "%{count} комментарий"
         few: "%{count} комментария"
         many: "%{count} комментариев"
         other: "%{count} комментарий"
-      post/like:
+      post_like:
         zero: "Нет лайков"
         one: "%{count} лайк"
         few: "%{count} лайка"
@@ -42,10 +42,10 @@ ru:
         category: "Категория"
       category:
         name: "Название"
-      post/comment:
+      post_comment:
         content: "Комментарий"
         post: "Пост"
-        author: "Автор"
-      post/like:
-        user: "Автор"
+        user: "Пользователь"
+      post_like:
+        user: "Пользователь"
         post: "Пост"
