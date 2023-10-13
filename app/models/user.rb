@@ -6,8 +6,7 @@ class User < ApplicationRecord
 
   has_many :created_posts, class_name: 'Post', foreign_key: :creator_id,
                            inverse_of: :creator, dependent: :destroy
-  has_many :comments, class_name: 'Post::Comment', foreign_key: :author_id,
-                      inverse_of: :author, dependent: :destroy
+  has_many :comments, class_name: 'Post::Comment', inverse_of: :user, dependent: :destroy
   has_many :likes, class_name: 'Post::Like', inverse_of: :user, dependent: :destroy
 
   def liked_post?(post)

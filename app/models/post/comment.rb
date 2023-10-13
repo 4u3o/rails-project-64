@@ -6,7 +6,7 @@ class Post::Comment < ApplicationRecord
   has_ancestry
 
   belongs_to :post
-  belongs_to :author, class_name: 'User'
+  belongs_to :user
 
   validates :content, presence: true,
                       length: {minimum: MIN_CONTENT_LENGTH}

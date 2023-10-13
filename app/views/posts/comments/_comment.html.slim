@@ -2,7 +2,7 @@
   .card-header.border-0
     = link_to '#', post_path(comment.post).concat("#comment-#{comment.id}"), class: "me-2"
     span.me-2
-      = comment.author.email
+      = comment.user.email
     span.fs-6.text-muted
       = l(comment.created_at, format: :short)
   .card-body.border-0

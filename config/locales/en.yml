@@ -47,6 +47,8 @@ en:
     comments:
       form:
         button: "Leave a comment"
+      create:
+        success: "Comment successfuly created"
     show:
       posts: "All posts"
     form:
