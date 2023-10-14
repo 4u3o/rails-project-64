@@ -1,4 +1,6 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class Posts::LikesControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -8,16 +10,16 @@ class Posts::LikesControllerTest < ActionDispatch::IntegrationTest
     @post = posts(:two)
   end
 
-  test "#create" do
-    assert_difference("PostLike.count") do
+  test '#create' do
+    assert_difference('PostLike.count') do
       post post_likes_url(@post)
     end
 
     assert { PostLike.where(user: @user, post: @post).count == 1 }
   end
 
-  test "#destroy" do
-    assert_difference("PostLike.count", -1) do
+  test '#destroy' do
+    assert_difference('PostLike.count', -1) do
       delete post_like_url(@post, post_likes(:one))
     end
 

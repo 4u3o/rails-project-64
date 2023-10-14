@@ -1,4 +1,6 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class PostsControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -7,19 +9,19 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     @category = categories(:one)
   end
 
-  test "#index" do
+  test '#index' do
     get root_url
     assert_response :success
   end
 
-  test "#new" do
+  test '#new' do
     sign_in @user
 
     get new_post_url
     assert_response :success
   end
 
-  test "#create" do
+  test '#create' do
     sign_in @user
 
     post_params = {
@@ -28,9 +30,9 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
       category_id: @category.id
     }
 
-    assert_difference("Post.count") do
+    assert_difference('Post.count') do
       post posts_url,
-           params: {post: post_params}
+           params: { post: post_params }
     end
 
     post = Post.find_by(title: post_params[:title])
@@ -43,7 +45,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to post_url(post)
   end
 
-  test "#show" do
+  test '#show' do
     get post_url(@post)
     assert_response :success
   end

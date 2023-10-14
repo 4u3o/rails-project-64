@@ -1,4 +1,6 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class Posts::CommentsControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -9,15 +11,15 @@ class Posts::CommentsControllerTest < ActionDispatch::IntegrationTest
     @root_comment = post_comments(:root)
   end
 
-  test "#create" do
+  test '#create' do
     comment_params = {
       content: Faker::Lorem.sentence,
       parent_id: nil
     }
 
-    assert_difference("PostComment.count") do
+    assert_difference('PostComment.count') do
       post post_comments_url(@post),
-           params: {post_comment: comment_params}
+           params: { post_comment: comment_params }
     end
 
     comment = PostComment.find_by(content: comment_params[:content])
@@ -29,15 +31,15 @@ class Posts::CommentsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to post_url(@post)
   end
 
-  test "#create nested comment" do
+  test '#create nested comment' do
     comment_params = {
       content: Faker::Lorem.sentence,
       parent_id: @root_comment.id
     }
 
-    assert_difference("@root_comment.children.count") do
+    assert_difference('@root_comment.children.count') do
       post post_comments_url(@post),
-           params: {post_comment: comment_params}
+           params: { post_comment: comment_params }
     end
 
     comment = PostComment.find_by(content: comment_params[:content])
