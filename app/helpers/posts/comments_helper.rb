@@ -11,5 +11,9 @@ module Posts
               'data-bs-target' => "#response_comment-#{comment.id}",
               'data-bs-toggle' => 'collapse'
     end
+
+    def path_to_comment(post, comment)
+      post_path(post).concat("#comment-#{comment.id}")
+    end
   end
 end

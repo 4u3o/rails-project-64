@@ -4,6 +4,7 @@ class PostComment < ApplicationRecord
   default_scope { order(created_at: :desc) }
 
   MIN_CONTENT_LENGTH = 5
+  MAX_CONTENT_LENGTH = 400
 
   has_ancestry
 
@@ -11,7 +12,7 @@ class PostComment < ApplicationRecord
   belongs_to :user
 
   validates :content, presence: true,
-                      length: { minimum: MIN_CONTENT_LENGTH }
+                      length: { minimum: MIN_CONTENT_LENGTH, maximum: MAX_CONTENT_LENGTH }
 
-  scope :roots, -> { where(ancestry: '/') }
+  scope :roots, -> { where(ancestry: nil) }
 end

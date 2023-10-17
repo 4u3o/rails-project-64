@@ -3,9 +3,7 @@
 module Posts
   class CommentsController < Posts::ApplicationController
     def create
-      @comment = current_user.comments.build(
-        comment_params.merge({ post_id: @post.id })
-      )
+      @comment = current_user.comments.build(comment_params)
 
       if @comment.save
         redirect_to @post, notice: t('.success')

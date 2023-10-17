@@ -10,5 +10,5 @@ article.col-12
         = time_ago_in_words(post.created_at)
     #likes-section
       span.me-2
-        = post.likes.count
+        = post.likes.size
       = like_tag(post)

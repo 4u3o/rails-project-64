@@ -1,6 +1,6 @@
 .card.mt-2.rounded-0 id="comment-#{comment.id}"
   .card-header.border-0
-    = link_to '#', post_path(comment.post).concat("#comment-#{comment.id}"), class: 'me-2'
+    = link_to '#', path_to_comment(post, comment), class: 'me-2'
     span.me-2
       = comment.user.email
     span.fs-6.text-muted
@@ -12,6 +12,7 @@
     .card-footer.border-0
       = link_to_comment(comment)
       .ms-2.collapse id="response_comment-#{comment.id}"
-        == render 'posts/comments/form', post: comment.post, parent: comment
+        == render 'posts/comments/form', post: post, parent: comment
   .ms-4
-    == render partial: 'posts/comments/comment', collection: comment.children
+    == render partial: 'posts/comments/comment', collection: comment.children,
+            locals: {post: post}

@@ -2,13 +2,18 @@
 
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
-  before_action :set_post, only: :show
 
   def index
-    @posts = Post.all
+    @posts = Post.includes(:creator, :likes)
   end
 
-  def show; end
+  def show
+    @post = Post.eager_load(:category, :creator, :likes, :comments).find(params[:id])
+    @comment = @post.comments.build
+    # во вью я рекурсивно вызываю #children, из-за чего формируется довольно много запросов.
+    # # но я не понимаю, как этого можно избежать
+    @root_comments = @post.comments.eager_load(:user).roots
+  end
 
   def new
     @post = Post.new
@@ -25,10 +30,6 @@ class PostsController < ApplicationController
   end
 
   private
-
-  def set_post
-    @post = Post.find(params[:id])
-  end
 
   def post_params
     params.require(:post).permit(:title, :body, :category_id)
