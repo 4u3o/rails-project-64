@@ -9,10 +9,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.eager_load(:category, :creator, :likes, :comments).find(params[:id])
-    @comment = @post.comments.build
-    # во вью я рекурсивно вызываю #children, из-за чего формируется довольно много запросов.
-    # # но я не понимаю, как этого можно избежать
-    @root_comments = @post.comments.eager_load(:user).roots
+    @like = @post.likes.find_by(user: current_user)
+    @comments = @post.comments.eager_load(:user).arrange(order: { id: :desc })
   end
 
   def new

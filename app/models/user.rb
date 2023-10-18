@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_many :comments, class_name: 'PostComment', inverse_of: :user, dependent: :destroy
   has_many :likes, class_name: 'PostLike', inverse_of: :user, dependent: :destroy
 
-  def liked_post?(post)
-    likes.find_by(post_id: post.id).present?
+  def liked?(like)
+    likes.include?(like)
   end
 end

@@ -1,12 +1,12 @@
 ol.breadcrumb
   li.breadcrumb-item = link_to t('.posts'), root_path
   li.breadcrumb-item.active = @post.category.name.capitalize
-== render @post
+== render @post, like: @like
 
 .lead.mt-3#comment-section
   span
     = PostComment.model_name.human(count: @post.comments.size)
-    == render 'posts/comments/form', comment: @comment, parent: nil if user_signed_in?
+    == render 'posts/comments/form', parent: nil, post: @post if user_signed_in?
     - if @post.comments.any?
-      == render partial: 'posts/comments/comment',
-              collection: @root_comments, locals: {post: @post}
+      - @comments.each do |comment, subtree|
+        == render 'posts/comments/comment', comment:, post: @post, subtree:

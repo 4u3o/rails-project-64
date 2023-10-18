@@ -13,6 +13,4 @@ class PostComment < ApplicationRecord
 
   validates :content, presence: true,
                       length: { minimum: MIN_CONTENT_LENGTH, maximum: MAX_CONTENT_LENGTH }
-
-  scope :roots, -> { where(ancestry: nil) }
 end
