@@ -4,7 +4,6 @@
       = link_to root_path, class: 'navbar-brand me-md-4'
         = image_tag asset_path('logo.png'), width: 30
     ul.nav.nav-pills
-
       - if user_signed_in?
         li.nav-item.me-2
           p.nav-link.disabled = current_user.email

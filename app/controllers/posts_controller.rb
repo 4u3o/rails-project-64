@@ -10,6 +10,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.eager_load(:category, :creator, :likes, :comments).find(params[:id])
     @like = @post.likes.find_by(user: current_user)
+    @new_comment = PostComment.new
     @comments = @post.comments.eager_load(:user).arrange(order: { id: :desc })
   end
 
