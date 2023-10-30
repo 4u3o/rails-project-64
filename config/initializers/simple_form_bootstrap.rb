@@ -97,8 +97,6 @@ SimpleForm.setup do |config|
     end
   end
 
-
-
   # vertical input for radio buttons and check boxes
   config.wrappers :vertical_collection, item_wrapper_class: 'form-check', item_label_class: 'form-check-label', tag: 'fieldset', class: 'mb-3' do |b|
     b.use :html5

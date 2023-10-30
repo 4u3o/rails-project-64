@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class Posts::CommentsControllerTest < ActionDispatch::IntegrationTest
+class CommentsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user = users(:one)
     sign_in @user

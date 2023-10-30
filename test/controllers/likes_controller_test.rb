@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class Posts::LikesControllerTest < ActionDispatch::IntegrationTest
+class LikesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user = users(:one)
     sign_in @user
