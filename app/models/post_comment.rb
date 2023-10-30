@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class PostComment < ApplicationRecord
-  default_scope { order(created_at: :desc) }
-
   MIN_CONTENT_LENGTH = 5
   MAX_CONTENT_LENGTH = 400
 

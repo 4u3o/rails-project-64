@@ -4,14 +4,14 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
 
   def index
-    @posts = Post.includes(:creator, :likes)
+    @posts = Post.includes(:creator, :likes).order(created_at: :desc)
   end
 
   def show
     @post = Post.eager_load(:category, :creator, :likes, :comments).find(params[:id])
     @like = @post.likes.find_by(user: current_user)
     @new_comment = PostComment.new
-    @comments = @post.comments.eager_load(:user).arrange(order: { id: :desc })
+    @comments = @post.comments.order(created_at: :desc).eager_load(:user).arrange(order: { id: :desc })
   end
 
   def new

@@ -12,18 +12,18 @@ ru:
       liked: "Понравилось"
     index:
       header: "Коллективный блог"
-    comments:
-      form:
-        button: "Оставить комментарий"
-      create:
-        success: "Коментарий был успешно добавлен"
     show:
       posts: "Все посты"
     form:
       button: "Опубликовать"
     create:
       success: "Пост успешно опубликован"
-    likes:
-      destroy:
-        alert: "Не твое - не трожь"
   answer: "ответить"
+  likes:
+    destroy:
+      alert: "Не твое - не трожь"
+  comments:
+    create:
+      success: "Коментарий был успешно добавлен"
+    form:
+      button: "Оставить комментарий"

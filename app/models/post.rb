@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class Post < ApplicationRecord
-  default_scope -> { order(created_at: :desc) }
-
   MIN_TITLE_LENGTH = 5
   MAX_TITLE_LENGTH = 255
   MIN_BODY_LENGTH = 200

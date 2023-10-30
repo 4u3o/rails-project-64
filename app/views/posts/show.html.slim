@@ -6,7 +6,7 @@ ol.breadcrumb
 .lead.mt-3#comment-section
   span
     = PostComment.model_name.human(count: @post.comments.size)
-    == render 'posts/comments/form', parent: nil, post: @post if user_signed_in?
+    == render 'comments/form', parent: nil, post: @post if user_signed_in?
     - if @post.comments.any?
       - @comments.each do |comment, subtree|
-        == render 'posts/comments/comment', comment:, post: @post, subtree:
+        == render 'comments/comment', comment:, post: @post, subtree:
